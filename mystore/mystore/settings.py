@@ -31,14 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'store.templatetags.register_filters',
-    'store.apps.StoreConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'store.templatetags.register_filters',
+    'store.apps.StoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +73,9 @@ TEMPLATES = [
     },
 ]
 
-
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10,
+}
 
 WSGI_APPLICATION = 'mystore.wsgi.application'
 
@@ -161,7 +165,7 @@ LOGOUT_REDIRECT_URL = '/store/'
 
 
 # backend for authentication with email/password
-AUTHENTICATION_BACKENDS = ['store.backend.EmailBackend']
+# AUTHENTICATION_BACKENDS = ['store.backend.EmailBackend']
 
 CACHES = {
     'default': {

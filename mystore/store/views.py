@@ -11,6 +11,10 @@ from django.contrib.auth import authenticate, login, logout
 
 from . models import Brand, Accordion, Cart, ProductCart, ProductOrder, Order
 from . forms import UserForm
+from . serializers import AccordionSerializer
+
+from rest_framework import permissions
+from rest_framework import viewsets
 
 import stripe
 
@@ -19,12 +23,13 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def login_user(request):
-    username = 'not logged in'
+    username = ''
     if request.POST:
-        email = request.POST['email']
+        # email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(email=email, password=password)
+        user = authenticate(username=username, password=password)
 
         if user is not None:
             login(request, user)
@@ -262,4 +267,32 @@ def checkout(request):
 
     return redirect('/store/cart')
 
+
+class AccordionViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    Additionally we also provide an extra `highlight` action.
+    """
+    queryset = Accordion.objects.all()
+    serializer_class = AccordionSerializer
+    permission_classes = permissions.IsAuthenticatedOrReadOnly
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+"""
+class AccordionList(generics.ListCreateAPIView):
+    queryset = Accordion.objects.all()
+    serializer_class = AccordionSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+class AccordionDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Accordion.objects.all()
+    serializer_class = AccordionSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+"""
 
