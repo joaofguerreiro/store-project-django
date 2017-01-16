@@ -1,0 +1,42 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}" />
+
+<h2>{{ selected_accordion.model_name|capfirst }}</h2><br/>
+<p>Description of the instrument. Lorem Ipsum.<br/>
+Amount of buttons, amount of registers. Text for filling.</p><br/>
+<div class="table-responsive col-xs-4 col-xs-offset-4">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>Color:</th>
+                <td>{{ selected_accordion.color }}</td>
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td>€ {{ selected_accordion.price }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row center">
+        <form method="post" action="{% url 'store:add_to_cart' selected_accordion.id %}">
+            {% csrf_token %}
+                <button type="submit" class="btn btn-success" value="add_to_cart" name="add_to_cart">Add to Cart</button>
+        </form>
+    </div>
+    <br/>
+</div>
+
+
+<img src="{{ selected_accordion.photo.url }}" name="{{ selected_accordion.model_name }}"/>
+<br/>
+<br/>
+
+{# <p>{{ selected_accordion.photo.url }} {{ MEDIA_URL }}/accordions/{{ selected_accordion.model_name }}.jpg</p> #}
+{# <img src="{% static 'header.jpg' %}" name="{{ selected_accordion.model_name }}"/> #}
+
+{% endblock %}

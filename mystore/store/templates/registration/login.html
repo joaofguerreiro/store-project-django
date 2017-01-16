@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+
+{% if user.is_active %}
+
+    <p>Hello, {{ user }}. Would you like to log out?</p>
+    <form action="{% url 'store:logout' %}" class="centered" style="text-align: center;">
+        <button type="submit" class="btn btn-primary" value="Logout" name="logout">Logout</button>
+    </form>
+
+{% else %}
+
+    <h3>Please log in.</h3><br/>
+    <form method="post" action="{% url 'store:login' %}" class="form-inline" style="text-align: center;">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="sr-only">Email</label>
+            <input class="form-control" type="text" value="{{ email }}" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only">Password</label>
+            <input class="form-control" type="password" value="{{ password }}" name="password" placeholder="Password">
+        </div>
+            <button type="submit" class="btn btn-primary" value="login" name="login">Login</button>
+    </form>
+
+{% endif %}
+
+{% endblock %}
+

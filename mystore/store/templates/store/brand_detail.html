@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}" />
+
+<h2>{{ selected_brand.brand_name|capfirst }}</h2>
+{% if lst_item %}
+    <p>Check all the available models:</p></br>
+    <ul class="list-group">
+    {% for accordion in lst_item %}
+        <li class="list-group-item col-xs-4 col-xs-offset-4">
+            <a href="{% url 'store:accordion_detail' selected_brand.brand_name accordion.model_name %}">{{ accordion.model_name|capfirst }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No models are available.</p>
+{% endif %}
+
+{% endblock %}

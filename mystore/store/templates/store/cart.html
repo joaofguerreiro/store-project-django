@@ -1,0 +1,54 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="col-xs-8 col-xs-offset-2">
+    <div class="center">
+        <h2>Your cart</h2><br/>
+        <div class="cart-container" style="margin-bottom: 60px;">
+            {% for cart_product in cart_products %}
+            <div class="cart-item">
+                <div class="cart-listing">
+                    <a href="{% url 'store:accordion_detail' cart_product.product.brand cart_product.product.model_name %}">
+                        <img class="img-thumbnail" width="120" height="120" style="float: left" src="{{ cart_product.product.photo.url }}" name="{{ cart_product.product.model_name }}"/>
+                    </a>
+                    <span class="title">{{ cart_product.product.model_name }}</span> by <a href="{% url 'store:brand_detail' cart_product.product.brand %}">{{ cart_product.product.brand|capfirst }}</a>
+                </div>
+                <div class="cart-price">
+                    <span class="cart-quantity">{{ cart_product.quantity }} x € <span class="cart-value">{{ cart_product.product.price }}</span></span>
+                    Quantity: <a href="{% url 'store:add_to_cart' cart_product.product.id %}">[+]</a> <a href="{% url 'store:remove_from_cart' cart_product.product.id %}">[-]</a>
+                </div>
+            </div>
+            {% empty %}
+            <div>
+                Your cart is empty.
+            </div>
+            {% endfor %}
+            {% if cart_products %}
+                <div class="cart-total">
+                    <h4>Total: € <span class="cart-value">{{ cart.total }}</span></h4>
+                </div>
+                <form action="{% url 'store:checkout' %}" method="POST">
+                    {% csrf_token %}
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_adgbwYEAK3HIqmZd2UhCBBe3"
+                    data-amount="{{ total }}"
+                    data-name="My Accordion Store"
+                    data-description="Payment with Credit Card"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto"
+                    data-zip-code="true"
+                    data-currency="eur">
+                  </script>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

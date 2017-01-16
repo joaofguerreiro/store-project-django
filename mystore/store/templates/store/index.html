@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    {% if brands_list %}
+        <h2>International handmade accordions factories</h2></br>
+        <ul class="list-group">
+        {% for brand in brands_list %}
+            <li class="list-group-item col-xs-4 col-xs-offset-4">
+                <a href="{% url 'store:brand_detail' brand.brand_name %}">{{ brand.brand_name|capfirst }}</a>
+                <span class="badge center">{{ brand.accordion_set.count }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No brands are available.</p>
+    {% endif %}
+
+{% else %}
+    <p>Welcome, new user. Please <a href="{% url 'store:login' %}" name="login">log in.</a></p>
+{% endif %}
+
+{% endblock %}
