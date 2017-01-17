@@ -8,7 +8,15 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from rest_framework import generics
+from rest_framework import mixins
+from rest_framework import permissions
+from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
 
+from store.serializers import AccordionSerializer
 from . models import Brand, Accordion, Cart, ProductCart, ProductOrder, Order
 from . forms import UserForm
 
@@ -19,12 +27,12 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def login_user(request):
-    username = 'not logged in'
+    username = ''
     if request.POST:
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(email=email, password=password)
+        user = authenticate(username=username, password=password)
 
         if user is not None:
             login(request, user)
@@ -33,7 +41,7 @@ def login_user(request):
                                                             % request.session['username'])
             return redirect('/store/')
         else:
-            messages.add_message(request, messages.WARNING, 'Your email/password are incorrect. Please try again.')
+            messages.add_message(request, messages.WARNING, 'Your username/password are incorrect. Please try again.')
 
     context = {'username': username}
     return render(request, 'registration/login.html', context)
@@ -262,4 +270,14 @@ def checkout(request):
 
     return redirect('/store/cart')
 
+
+"""
+This viewset automatically provides `list`, `create`, `retrieve`,
+`update` and `destroy` actions.
+Additionally we also provide an extra `highlight` action.
+"""
+class AccordionViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    queryset = Accordion.objects.all()
+    serializer_class = AccordionSerializer
 
