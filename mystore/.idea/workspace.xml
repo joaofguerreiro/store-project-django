@@ -19,24 +19,14 @@
     <favorites_list name="mystore" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/store/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="363">
+              <caret line="150" column="39" lean-forward="true" selection-start-line="150" selection-start-column="39" selection-end-line="150" selection-end-column="39" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <element signature="e#909#1679#0" expanded="false" />
-                <element signature="e#1712#1861#0" expanded="false" />
-                <element signature="e#1898#2719#0" expanded="false" />
-                <element signature="e#2761#2922#0" expanded="false" />
-                <element signature="e#2986#3273#0" expanded="false" />
-                <element signature="e#3353#3670#0" expanded="false" />
-                <element signature="e#3717#4402#0" expanded="false" />
-                <element signature="e#4454#5008#0" expanded="false" />
-                <element signature="e#5034#5573#0" expanded="false" />
-                <element signature="e#5603#9932#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,7 +35,7 @@
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="60">
               <caret line="5" column="72" lean-forward="false" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -101,6 +91,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="28" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="798" />
@@ -120,7 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -164,6 +154,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,8 +402,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="798" extended-state="6" />
-    <editor active="true" />
+    <frame x="28" y="23" width="1440" height="798" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18393235" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -666,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="60">
           <caret line="5" column="72" lean-forward="false" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -678,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,9 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,26 +683,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="321" column="0" lean-forward="true" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/store/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state relative-caret-position="363">
+          <caret line="150" column="39" lean-forward="true" selection-start-line="150" selection-start-column="39" selection-end-line="150" selection-end-column="39" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <element signature="e#909#1679#0" expanded="false" />
-            <element signature="e#1712#1861#0" expanded="false" />
-            <element signature="e#1898#2719#0" expanded="false" />
-            <element signature="e#2761#2922#0" expanded="false" />
-            <element signature="e#2986#3273#0" expanded="false" />
-            <element signature="e#3353#3670#0" expanded="false" />
-            <element signature="e#3717#4402#0" expanded="false" />
-            <element signature="e#4454#5008#0" expanded="false" />
-            <element signature="e#5034#5573#0" expanded="false" />
-            <element signature="e#5603#9932#0" expanded="false" />
           </folding>
         </state>
       </provider>
